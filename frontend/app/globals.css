@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+@import 'tailwindcss';
+
+@plugin 'tailwindcss-animate';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --font-primary: "Montserrat", sans-serif;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@layer base {
+    :root {
+        --background: theme(colors.white);
+        --foreground: #1A1110;
+
+        --card: theme(colors.white);
+        --card-foreground: theme(colors.neutral.600);
+
+        --primary: theme(colors.yellow.500);
+        --primary-foreground: theme(colors.yellow.900);
+
+        --secondary: theme(colors.neutral.300);
+        --secondary-foreground: theme(colors.yellow.200);
+
+        --muted: theme(colors.neutral.700);
+        --muted-foreground: theme(colors.white);
+
+        --accent: theme(colors.yellow.400);
+        --accent-foreground: theme(colors.yellow.300);
+
+        --primary-text: #1A1110;
+        --inverse-text: #ffeeec;
+
+
+        --radius: 0.5em;
+    }
+
+    .dark {
+        --background: 0 0% 0%; /* slate-950 */
+        --foreground: 210 40% 98%; /* slate-50 */
+        --card: 222.2 47.4% 11.2%; /* slate-950 */
+        --card-foreground: 210 40% 98%; /* slate-50 */
+        --popover: 222.2 47.4% 11.2%; /* slate-950 */
+        --popover-foreground: 210 40% 98%; /* slate-50 */
+        --primary: 210 40% 98%; /* slate-50 */
+        --primary-foreground: 222.2 47.4% 11.2%; /* slate-950 */
+        --secondary: 215 27.9% 16.9%; /* slate-800 */
+        --secondary-foreground: 210 40% 98%; /* slate-50 */
+        --muted: 215 27.9% 16.9%; /* slate-800 */
+        --muted-foreground: 217.2 32.6% 83.1%; /* slate-400 */
+        --accent: 215 27.9% 16.9%; /* slate-800 */
+        --accent-foreground: 210 40% 98%; /* slate-50 */
+        --destructive: 0 62.8% 30.6%; /* red-800 */
+        --destructive-foreground: 0 0% 98%; /* white */
+        --border: 215 27.9% 16.9%; /* slate-800 */
+        --input: 215 27.9% 16.9%; /* slate-800 */
+        --ring: 217.2 32.6% 83.1%; /* slate-400 */
+
+        --chart-1: 220 70% 50%;
+        --chart-2: 160 60% 45%;
+        --chart-3: 30 80% 55%;
+        --chart-4: 280 65% 60%;
+        --chart-5: 340 75% 55%;
+    }
+}
+
+
+@layer base {
+
+  * {
+    @apply border-border;
+    @apply box-border;
+    @apply leading-none;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    @apply text-base;
+  }
+
+}
+
+/* Style all scrollbars globally */
+* {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #1F2937 transparent; /* thumb and track */
+}
+
+/* Chrome, Edge, Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #7b7b7b;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #ff0000;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.texture-mosaic {
+    background-image: url("https://www.transparenttextures.com/patterns/arabesque.png");
+}
